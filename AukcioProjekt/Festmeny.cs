@@ -46,7 +46,7 @@ namespace AukcioProjekt
                     this.licitekSzama = 1;
                     this.legutolsoLicitIdeje = DateTime.Now;
                 }
-                else
+                if (this.licitekSzama > 0)
                 {
                     Licit(10);
                 }
@@ -69,9 +69,9 @@ namespace AukcioProjekt
                         this.licitekSzama = 1;
                         this.legutolsoLicitIdeje = DateTime.Now;
                     }
-                    else
+                    if(this.licitekSzama > 0)
                     {
-                        double szorzo = 1 + (mertek / 100);
+                        double szorzo = 1 + (mertek / 100.0);
                         double segeddouble = legmagasabbLicit * szorzo;
                         string seged = Convert.ToString(segeddouble);
                         string seged2 = seged.Substring(0, 2);
