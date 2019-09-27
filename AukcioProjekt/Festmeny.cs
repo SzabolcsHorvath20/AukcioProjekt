@@ -30,5 +30,86 @@ namespace AukcioProjekt
         public int LegmagasabbLicit { get => legmagasabbLicit; }
         public DateTime LegutolsoLicitIdeje { get => legutolsoLicitIdeje;}
         public bool Elkelt { get => elkelt; set => elkelt = value; }
+
+        public void Licit()
+        {
+            if (this.elkelt == true)
+            {
+                Console.WriteLine("A festmény már elkelt!");
+                Console.ReadKey();
+            }
+            else
+            {
+                if (this.licitekSzama == 0)
+                {
+                    this.legmagasabbLicit = 100;
+                    this.licitekSzama = 1;
+                    this.legutolsoLicitIdeje = DateTime.Now;
+                }
+                else
+                {
+                    Licit(10);
+                }
+            }
+        }
+        public void Licit(int mertek)
+        {
+            if (mertek <=100 && mertek >= 10)
+            {
+                if (this.elkelt == true)
+                {
+                    Console.WriteLine("A festmény már elkelt!");
+                    Console.ReadKey();
+                }
+                else
+                {
+                    if (this.licitekSzama == 0)
+                    {
+                        this.legmagasabbLicit = 100;
+                        this.licitekSzama = 1;
+                        this.legutolsoLicitIdeje = DateTime.Now;
+                    }
+                    else
+                    {
+                        double szorzo = 1 + (mertek / 100);
+                        double segeddouble = legmagasabbLicit * szorzo;
+                        string seged = Convert.ToString(segeddouble);
+                        string seged2 = seged.Substring(0, 2);
+                        string seged3 = seged.Substring(2);
+                        string seged4 = "";
+                        for (int i = 0; i < seged3.Length; i++)
+                        {
+                            seged4 += "0";
+                        }
+                        int seged5 = Convert.ToInt32(seged2 + seged4);
+
+                        this.legmagasabbLicit = seged5;
+                        this.licitekSzama += 1;
+                        this.legutolsoLicitIdeje = DateTime.Now;
+                    }
+                }
+            }
+            else
+            {
+                Console.WriteLine("Hibás érték!");
+                Console.ReadKey();
+            }
+        }
+        public override string ToString()
+        {
+            if (elkelt == true)
+            {
+                return this.festo + ": " + this.cim + "(" + this.stilus + ")\n" +
+                    "elkelt\n" +
+                    this.legmagasabbLicit + "$" + " -" +
+                this.legutolsoLicitIdeje + " összesen: " + this.licitekSzama + " db)";
+            }
+            else
+            {
+                return this.festo + ": " + this.cim + "(" + this.stilus + ")\n" +
+                    this.legmagasabbLicit + "$" + " -" +
+                this.legutolsoLicitIdeje + " összesen: " + this.licitekSzama + " db)";
+            }
+        }
     }
 }
