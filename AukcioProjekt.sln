@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29306.81
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AukcioProjekt", "AukcioProjekt\AukcioProjekt.csproj", "{A7C96ABB-4397-48FA-AA57-196495DEF6CB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A7C96ABB-4397-48FA-AA57-196495DEF6CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7C96ABB-4397-48FA-AA57-196495DEF6CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7C96ABB-4397-48FA-AA57-196495DEF6CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7C96ABB-4397-48FA-AA57-196495DEF6CB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B6667CD9-EA06-4B9D-8733-C4DF55A5EDFA}
+	EndGlobalSection
+EndGlobal
