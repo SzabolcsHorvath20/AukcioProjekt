@@ -98,11 +98,56 @@ namespace AukcioProjekt
                 {
                     item.Elkelt = true;
                 }
+                if (item.LicitekSzama == 0)
+                {
+                    item.Elkelt = false;
+                }
             }
         }
         static void Legdragabb()
         {
+            Festmeny seged = Festmenyek[0];
+            Console.WriteLine("A legdrágábban eladott festmény:");
+            foreach (var item in Festmenyek)
+            {
+                if (item.LegmagasabbLicit > seged.LegmagasabbLicit)
+                {
+                    seged = item;
+                }
+            }
 
+        }
+        static void Tizneltobb()
+        {
+            int seged = 0;
+            foreach (var item in Festmenyek)
+            {
+                if (item.LicitekSzama > 10)
+                {
+                    seged++;
+                }
+            }
+            Console.WriteLine(seged + " olyan festmény van amire 10-nél többször licitáltak.");
+        }
+        static void NemKeltEl()
+        {
+            int seged = 0;
+            foreach (var item in Festmenyek)
+            {
+                if (item.Elkelt == false)
+                {
+                    seged++;
+                }
+            }
+            Console.WriteLine(seged + " festmény van ami nem kelt el.");
+        }
+        static void Rendezes()
+        {
+            Festmenyek.Sort((y,x) => x.LegmagasabbLicit.CompareTo(y.LegmagasabbLicit));
+            foreach (var item in Festmenyek)
+            {
+                Console.WriteLine(item);
+            }
         }
         static void Main(string[] args)
         {
@@ -115,6 +160,10 @@ namespace AukcioProjekt
             {
                 Console.WriteLine(item);
             }
+            Legdragabb();
+            Tizneltobb();
+            NemKeltEl();
+            Rendezes();
             Console.ReadKey();
         }
     }
