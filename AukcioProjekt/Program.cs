@@ -149,6 +149,15 @@ namespace AukcioProjekt
                 Console.WriteLine(item);
             }
         }
+        static void Fajlbairas()
+        {
+            StreamWriter iras = new StreamWriter("festmenyek_rendezett.csv");
+            foreach (var item in Festmenyek)
+            {
+                iras.WriteLine("{0},{1},{2}",item.Cim, item.Festo, item.Stilus);
+            }
+            iras.Close();
+        }
         static void Main(string[] args)
         {
             Feltoltes();
@@ -164,6 +173,7 @@ namespace AukcioProjekt
             Tizneltobb();
             NemKeltEl();
             Rendezes();
+            Fajlbairas();
             Console.ReadKey();
         }
     }
